@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BargasLautaro - Administrador de Sistemas</title>
+    <style>
+        
+    .cerrar {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: red;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+        .tete{
+          position: absolute;
+          top: -2%;
+          color: lime;
+          background-color: black;
+          z-index: 3;
+          left: 1%;
+        }
+       .root{
+         width:30%; 
+   border-radius: 60px; 
+   border:3px solid lime; 
+   background-color:black; 
+   color:lime;
+   position:absolute;
+   top: 30%;
+   padding: 10px 0 10px 0;
+   font-size:2vh;
+   left:30%;
+   z-index:4;
+
+         
+         
+         
+       }
+        body {
+            font-family: Arial, sans-serif;
+            background-image: ;
+            color: white;
+            display: flex;
+            margin: 0;
+            flex-direction: column;
+            background-color: black;
+            background-size: cover; /* Ajusta la imagen para cubrir toda la pantalla */
+            background-position: center; /* Centra la imagen */
+            background-repeat: no-repeat;
+        }
+        .content {
+            width: 90%;
+            position: relative;
+            top: 6%;
+            left: 5%;
+            height: 20vh;
+            background: linear-gradient(45deg, 
+    red, 
+    orange, 
+    yellow, 
+    green, 
+    blue, 
+    indigo, 
+    violet);
+        
+  
+            padding: 0px 0px 0px 0px;
+            border-radius: 10px;
+            border: 2px solid #00ff99;
+            box-shadow: 0 0 5px #00ff99;
+            text-align: center;
+            align-items: center;
+            content: center;
+            
+            
+            
+            
+        }
+        .tit {
+            color: lime;
+            background-color: rgb(1,1,1,0.6);
+            border: 2px solid white;
+            text-align: center;
+            border-radius: 30px;
+            margin:30px;
+            font-size:3vh;
+        }
+        .parrafo{
+          
+              color: lime;
+            background-color: rgb(1,1,1,0.8);
+            margin: 20px;
+            border: 1px solid white;
+            text-align: center;
+            border-radius: 25px;
+            font-size:2vh
+        }
+        .parte1{
+          position: relative;
+          
+          border:3px solid purple;
+          margin:2px;
+          top:2%;
+          width:auto;
+          height: 30vh ;
+          background-image: url('https://i.imgur.com/zdaqTSo.png'); /* Reemplaza con la URL de la imagen */
+            background-color: black;
+            background-size: cover; /* Ajusta la imagen para cubrir toda la pantalla */
+            background-position: center; /* Centra la imagen */
+            background-repeat: no-repeat; /* Evita que se repita */
+            
+            
+          
+        }
+        .scrollable-buttons {
+            position: relative;
+            left: 2%;
+            top:4%;
+            width:92%;
+            height: 90%;
+            position: relative;
+    
+            overflow-y: auto;
+            border: 2px solid #3399ff;
+            padding: 0 5px 0 5px;
+            margin: 0;
+            background-color: rgb(1,1,1,1);
+            border-radius: 5px;
+        }
+        .scrollable-buttons::-webkit-scrollbar {
+            width: 8px;
+        }
+        .scrollable-buttons::-webkit-scrollbar-thumb {
+            background-color: #00ff99;
+            border-radius: 10px;
+        }
+        .job-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            color: #cfcfcf;
+            background-color: #0d0d1a;
+            border: 2px solid #3399ff;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+        .job-button:hover {
+            background-color: #00ff99;
+            color: #000;
+        }
+        .job-info {
+    display: none;
+    position: relative;
+    top: 50%;
+    left: 10%;
+    transform: translate(-10%, -20%);
+    width: 88%;
+    height:140%;
+    padding: 20px;
+    background: black;
+    color: white;
+    border: 2px solid #00ff99;
+    border-radius: 10px;
+    box-shadow: 0 0 5px #00ff99;
+    text-align: center;
+}
+        .close-button {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: red;
+    color: black;
+    border: none;
+    padding: 5px 10px;
+    z-index: 6;
+}
+        .close-button:hover {
+          background-color: black;
+          color: red;
+          padding:10px;
+          
+        }
+        .styled-button{
+          
+          position: relative;
+          margin:10px;
+          padding:10px;
+          background-color: black;
+          color: lime;
+          border:1px solid red;
+          
+          
+          
+        }
+    .styled-buttona:hover{
+         background-color: lime;
+         color: black;
+                        }
+    .styled-button:hover{
+         background-color: lime;
+         color: black;
+                        }
+    .styled-buttona{
+          
+          position: relative;
+          margin:10px;
+          padding:10px;
+          background-color: black;
+          color: lime;
+          border:1px solid red;
+          
+          
+          
+        }
+   .servilinux{
+        
+          color:lime;
+          font-size:1vh;
+        }
+    .separador{
+      height:1vh;
+    }
+    
+            .point {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: red;
+            border-radius: 50%;
+        }
+
+
+        #point1 { top: 35%; left: 45%; 
+          
+          
+        }
+      
+      
+        #point2 { top: 65%; 
+        right: 80%;
+        }
+        
+        
+
+        #point4 { top: 60%;
+       
+        left: 75%; }
+
+        #point6 {
+          
+          
+          bottom: 20%; right: 50%;
+        background-color:blue;
+          
+        }
+        
+svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Envía el SVG al fondo para que los puntos sean visibles */
+}
+
+        #registroUsuario {
+    display: none;
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+    width: 300px;
+    padding: 20px;
+    background: black;
+    color: lime;
+    border: 2px solid lime;
+    border-radius: 10px;
+    text-align: center;
+    z-index: 10;
+}
+        #cube-container {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    perspective: 600px;
+    margin: 50px auto;
+}
+
+#cube {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    transform: rotateX(0deg) rotateY(0deg);
+    transition: transform 0.2s;
+}
+.face {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    flex-direction:column;
+    background: rgba(0, 255, 0, 0.6);
+    color: black;
+    margin: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid lime;
+    font-weight: bold;
+}
+.arribita{position: relative; top:-10%;}
+.front  { transform: rotateY(  0deg) translateZ(100px); }
+.back   { transform: rotateY(180deg) translateZ(100px); }
+.left   { transform: rotateY(-90deg) translateZ(100px); }
+.right  { transform: rotateY( 90deg) translateZ(100px); }
+.top    { transform: rotateX( 90deg) translateZ(100px); }
+.bottom { transform: rotateX(-90deg) translateZ(100px); }
+
+
+
+
+        .boton {
+            display: block;
+            width: 80%;
+            padding: 15px;
+            margin: 10px auto;
+            background-color: #008000;
+            border: 3px solid white;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .boton:hover {
+            background-color: #00ff00;
+        }
+
+        .animacion {
+            display: none;
+            width: 80%;
+            margin: auto;
+            padding: 10px;
+            background-color: #444;
+            color: white;
+            font-size: 16px;
+            text-align: left;
+            border: 2px solid yellow;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .mostrar {
+            display: block;
+            opacity: 1;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="parte1">
+   <h2 class="tit">Administrador de Sistemas</h2>
+        <p class="parrafo">Gestión y mantenimiento de redes y sistemas operativos, con enfoque en servidores Linux.</p>
+        <p class="parrafo">Certificado en Administración de Redes y Ciberseguridad, especializado en sistemas Linux.</p>
+        <p style="border: 2px solid red; background-color:black; color:white; padding:2px; width:60%; position:relative; left:20%; text-align: center; border-radius:30px;">Ejemplos de trabajos realizados:</p>
+        
+      </div>
+      <div class="separador"></div>
+    <div class="content">
+       
+        <div class="scrollable-buttons">
+            <button class="job-button">Configuración de servidores Linux</button>
+            <button class="job-button">Gestión de usuarios y permisos</button>
+            <button class="job-button">Implementación de políticas de seguridad</button>
+            <button class="job-button">Configuración de VPN</button>
+            <button class="job-button">Monitoreo de redes</button>
+            <button class="job-button">Soporte técnico avanzado</button>
+            <button class="job-button">Automatización con scripts</button>
+            <button class="job-button">Gestión de backups</button>
+            <button class="job-button">Implementación de sistemas de virtualización</button>
+            <button class="job-button">Optimización de rendimiento de servidores</button>
+            <button class="job-button">Mantenimiento de firewalls</button>
+            <button class="job-button">Despliegue de aplicaciones</button>
+            <button class="job-button">Gestión de bases de datos</button>
+            <button class="job-button">Configuración de balanceadores de carga</button>
+            <button class="job-button">Auditorías de seguridad</button>
+            <button class="job-button">Soporte en migraciones</button>
+            <button class="job-button">Monitoreo de logs</button>
+            <button class="job-button">Diseño de redes empresariales</button>
+            <button class="job-button">Solución de problemas de conectividad</button>
+            <button class="job-button">Mantenimiento de hardware</button>
+            <button class="job-button">Despliegue de entornos de desarrollo</button>
+            <button class="job-button">Configuración de servidores web</button>
+            <button class="job-button">Gestión de dominios y DNS</button>
+            <button class="job-button">Implementación de sistemas de correo electrónico</button>
+            <button class="job-button">Capacitación a usuarios finales</button>
+            <button class="job-button">Configuración de sistemas de monitoreo</button>
+            <button class="job-button">Integración de servicios en la nube</button>
+            <button class="job-button">Gestión de incidentes críticos</button>
+            <button class="job-button">Soporte en proyectos de TI</button>
+            <button class="job-button">Configuración de políticas de acceso remoto</button>
+        </div>
+
+<div id="Configuración de servidores Linux" class="job-info servilinux">
+</div>
+<div id="Gestión de usuarios y permisos" class="job-info gesti">
+  
+  
+ <h3 class="tete" >Contenido sobre Gestión de usuarios y permisos</h3> 
+  
+<button  class="close-button"
+      onclick="cerrarDiv(button)">
+       X</button>
+<button class="root">root</button>
+
+<button style="
+   width:30%; 
+   border-radius: 60px; 
+   border:3px solid lime; 
+   background-color:black; 
+   color:lime;
+   position:absolute;
+   top: 60%;
+   padding: 5px 0 5px 0;
+   font-size:2vh;
+   right:4%;
+      z-index:4;
+   
+
+" id="UsuarioA">UsuarioA</button>
+
+
+
+<div id="registroUsuario" class="job-info">
+    <h3>Registro de Usuario</h3>
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" placeholder="Ingrese su nombre">
+    
+    <label for="email">Correo:</label>
+    <input type="email" id="email" placeholder="Ingrese su correo">
+    
+    <label for="password">Contraseña:</label>
+    <input type="password" id="password" placeholder="Ingrese su contraseña">
+    
+    <button onclick="registrarUsuario()">Registrar</button>
+    <button class="close-button" onclick="cerrarDiv('registroUsuario')">X</button>
+</div>
+
+<button style="
+   width:30%; 
+   border-radius: 60px; 
+   border:3px solid lime; 
+   background-color:black; 
+   color:lime;
+   position:absolute;
+   top: 60%;
+   padding: 5px 0 5px 0;
+   font-size:2vh;
+   left: 4%;
+   z-index:4;
+">Milen</button>
+<button style="
+   width:30%; 
+   border-radius: 60px; 
+   border:3px solid lime; 
+   background-color:black; 
+   color:lime;
+   position:absolute;
+   top: 75%;
+   padding: 5px 0 5px 0;
+   font-size:2vh;
+   left: 35%;
+   z-index:4;
+">Huilen</button>
+
+
+
+    <div class="point" id="point1"></div>
+    <div class="point" id="point2"></div>
+
+    <div class="point" id="point4"></div>
+    
+    <div class="point" id="point6"></div>
+    
+    <!-- SVG para las líneas -->
+    <svg>
+        <line id="line1" stroke="white" stroke-width="2" />
+        <line id="line2" stroke="cyan" stroke-width="2" />
+        <line id="line3" stroke="yellow" stroke-width="2" />
+    </svg>
+
+
+<img style="width:30%; position:absolute; top:15%; left:2%; border-radius:20px 20px 80px 20px; border:3px solid brown; z-index:3;" src='https://i.imgur.com/TSSPiSt.png'>
+
+        
+    
+       
+
+
+
+</div>
+
+<div id="Implementación de políticas de seguridad" class="job-info">Contenido sobre Implementación de políticas de seguridad
+
+<div id="cube-container">
+    <div id="cube">
+        <div class="face front">
+            <h3>🔒 Autenticación Multifactor</h3>
+            <p class="arribita" >La autenticación multifactor (MFA) añade una capa extra de seguridad al requerir más de un método de verificación antes de conceder acceso.</p>
+        </div>
+        <div class="face back">
+            <h3>🔑 Encriptación de Datos</h3>
+            <p class="arribita">La encriptación protege la información transformándola en un formato ilegible sin una clave de descifrado, garantizando la privacidad.</p>
+        </div>
+        <div class="face left">
+            <h4>⚙️ Actualizaciones de Seguridad</h4>
+            <p class="arribita">Mantener los sistemas actualizados es crucial para protegerse contra vulnerabilidades y exploits descubiertos en software y hardware.</p>
+        </div>
+        <div class="face right">
+            <h3>👥 Gestión de Accesos</h3>
+            <p   class="arribita">Implementar controles de acceso limita los permisos de los usuarios según sus funciones, reduciendo el riesgo de accesos no autorizados.</p>
+        </div>
+        <div class="face top">
+            <h3>📡 Monitoreo de Redes</h3>
+            <p  class="arribita">Supervisar continuamente la red permite detectar amenazas, anomalías y posibles intrusos en tiempo real, fortaleciendo la seguridad.</p>
+        </div>
+        <div class="face bottom">
+            <h3  >💾 Respaldo de Información</h3>
+            <p  class="arribita">Realizar copias de seguridad periódicas previene la pérdida de datos en caso de ataques cibernéticos, fallos de hardware o errores humanos.</p>
+        </div>
+    </div>
+</div>
+
+</div>
+
+<div id="Configuración de VPN" class="job-info">
+    <h2>Configuración de VPN</h2>
+
+    <p>Las VPNs permiten cifrar la conexión entre tu dispositivo e Internet, protegiendo tu privacidad y seguridad. Existen diferentes tipos de VPN:</p>
+
+    <button onclick="toggleAnimation()">Mostrar/Ocultar Tipos de VPN</button>
+
+    <div id="animation-container" class="hidden">
+        <div class="animation-box" onclick="showDetails('pptp')">
+            <p class="step">1. PPTP (Protocolo de Túnel Punto a Punto)</p>
+        </div>
+        <div class="animation-box" onclick="showDetails('l2tp')">
+            <p class="step">2. L2TP/IPSec (Túnel de Capa 2 + Seguridad)</p>
+        </div>
+        <div class="animation-box" onclick="showDetails('openvpn')">
+            <p class="step">3. OpenVPN (Alta seguridad y flexibilidad)</p>
+        </div>
+        <div class="animation-box" onclick="showDetails('wireguard')">
+            <p class="step">4. WireGuard (Moderno, rápido y seguro)</p>
+        </div>
+    </div>
+
+    <div id="vpn-details" class="hidden">
+        <h3 id="vpn-title"></h3>
+        <p id="vpn-description"></p>
+        <p id="vpn-usage"></p>
+        <button id="close-details" onclick="closeDetails()">Cerrar</button>
+    </div>
+</div>
+
+<style>
+    #animation-container {
+        margin-top: 20px;
+        background-color: black;
+        position: absolute;
+        padding: 20px;
+        top: -160%;
+        width: 110vw;
+        left: -10%;
+    }
+
+    .animation-box {
+        background-color: #1a1a1a;
+        color: #00ff00;
+        padding: 15px;
+        width: 100%;
+        margin: 10px 0;
+        border-left: 5px solid #00ff00;
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: opacity 1s, transform 1s;
+        cursor: pointer;
+    }
+
+    .animation-box.show {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .animation-box:hover {
+        background-color: #2a2a2a;
+    }
+
+    #vpn-details {
+        background: #262626;
+        color: white;
+        width: 100vw;
+        height: 53vh;
+        position: absolute;
+        left: -30px;
+        top: -180%;
+        padding: 10px;
+        margin-top: 20px;
+        border: 2px solid #00ff00;
+        display: none;
+        text-align: center;
+    }
+
+    #close-details {
+        background: red;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin-top: 15px;
+        cursor: pointer;
+    }
+
+    #close-details:hover {
+        background: darkred;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    button {
+        background: #008cff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    button:hover {
+        background: #005bbb;
+    }
+</style>
+
+<script>
+    function toggleAnimation() {
+        let container = document.getElementById('animation-container');
+        if (container.style.display === 'block') {
+            container.style.display = 'none';
+        } else {
+            container.style.display = 'block';
+            let steps = document.querySelectorAll('.animation-box');
+            steps.forEach((step, index) => {
+                setTimeout(() => {
+                    step.classList.add('show');
+                }, index * 500);
+            });
+        }
+    }
+
+    function showDetails(vpnType) {
+        let details = {
+            pptp: {
+                title: "PPTP (Protocolo de Túnel Punto a Punto)",
+                description: "Es uno de los protocolos de VPN más antiguos, desarrollado por Microsoft. Es rápido pero tiene una seguridad débil.",
+                usage: "Útil si necesitas una VPN rápida sin preocuparte demasiado por la seguridad, pero no se recomienda para datos sensibles."
+            },
+            l2tp: {
+                title: "L2TP/IPSec (Túnel de Capa 2 con Seguridad)",
+                description: "Combina L2TP con IPSec para mayor seguridad. Es más seguro que PPTP, pero puede ser más lento debido al doble encapsulado.",
+ 
