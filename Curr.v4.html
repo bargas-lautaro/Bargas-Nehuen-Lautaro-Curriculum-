@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+
+    
+    <title>Currículum y Portafolio</title>
+    <style>
+
+        @keyframes stripes {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 200% 200%;
+  }
+}
+        body {
+            margin: 0;
+            font-family: 'Roboto', Arial, sans-serif;
+            letter-spacing: 0.1em;
+
+            background: repeating-linear-gradient(
+    45deg,
+    rgb(0, 56, 0) 0px,
+    rgb(0, 41, 0) 10px,
+    #111 10px,
+    #111 20px,
+    #000b29 20px,
+    #02001b 30px,
+    #0a0a0a 30px,
+    #0a0a0a 40px,
+    rgb(33, 0, 34) 40px,
+    rgb(34, 0, 21) 50px
+  );
+            
+            background-size: 200% 200%;
+            animation: stripes 30s linear infinite;
+            
+
+
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .tit {
+            color:red;
+            position: absolute;
+            top: 10%;
+            align-items: center;
+            text-align: center;
+            width: 40%; 
+            z-index: 2;
+            background-color: black;
+            padding: 15px;
+            border-radius: 15px;
+            border: 3px solid rgb(1, 255, 1);
+        }
+        
+   .carousel-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+#infoMateria {
+  position: absolute;
+  top: 5%;
+  width: 50%;
+  left: 25%;
+  color: #4cffa5;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2em;
+  text-align: center;
+  letter-spacing: 0.2em;
+  line-height: 1.5em;
+}
+
+
+.subject-carousel {
+  overflow-x: hidden;
+  width: 80%;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 10px;
+  width: max-content;
+  scroll-behavior: smooth;
+}
+
+.subject-button {
+  padding: 18px 28px;
+  min-width: 180px;
+  border: 3px solid #3399ff;
+  background-color: #040026;
+  color: #cfcfcf;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  flex: 0 0 auto;
+  transition: background-color 0.3s, color 0.3s, transform 0.2s;
+}
+.subject-button:hover {
+  background-color: #00ff99;
+  color: #000;
+  transform: scale(1.05);
+}
+
+.carousel-btn {
+  background: #040026;
+  color: #00ff99;
+  border: 2px solid #00ff99;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+.carousel-btn:hover {
+  background: #00ff99;
+  color: #000;
+}
+
+
+.subject-links button {
+    padding: 5px 10px;
+    margin: 5px;
+    background-color: #3399ff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.subject-links button:hover {
+    background-color: #00ff99;
+    color: #000;
+}
+        .arrow {
+            position: absolute;
+            cursor: pointer;
+            font-size: 2rem;
+            background-color: rgb(0, 0, 0);
+            user-select: none;
+            scale: 2;
+            color: rgb(132, 0, 255);
+            border: 3px solid rgb(39, 0, 34);
+            border-radius: 15px;
+        }
+        .arrow:hover {
+            scale: 2.5; 
+            color: rgb(0, 255, 13);
+            z-index: 10;
+            background-color: rgb(51, 0, 255);
+            border: 3px solid rgb(255, 93, 35, 0.4);
+            
+            
+        }
+
+        .arrow.up {
+            top: 5%;
+            left: 50%;
+            z-index: 2;
+            transform: translateX(-50%);
+        }
+        .arrow.up:hover {
+            left: 50.3%;
+
+
+
+        }
+
+        .arrow.down {
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .arrow.down:hover {
+
+            left: 50.3%;
+
+        }
+
+        .arrow.left {
+            left: 2%;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 16;
+        }
+
+        .arrow.right {
+            right: 2%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+       .container {
+    width: 87.5%;
+    height: 75%;
+    background-image: url('https://i.imgur.com/TFSO69M.png');  /* imagen aplicada */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    background-color: rgba(11, 11, 11, 0.9);  /* color de respaldo */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid #39ff14;   /* verde neón válido */
+    box-shadow: 0 0 10px green;
+    overflow: hidden;
+}
+
+        .button-list {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transform: translateY(0);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .button {
+            width: 80%;
+            padding: 15px;
+            text-align: center;
+            font-size: 1.2rem;
+            color: white;
+            background-color: black;
+            border: 2px solid green;
+            border-radius: 30px;
+            margin: 10px 0;
+            opacity: 0.5;
+            transform: scale(1);
+            transition: transform 0.3s, opacity 0.3s;
+        }
+
+        .button.active {
+            transform: scale(1.2);
+            opacity: 1;
+            z-index: 10;
+            background-color: aqua;
+            color: black;
+            border-radius: 60px;
+            font-size: 2rem;
+        }
+
+
+
+
+
+
+
+        .content {
+            display: none;
+            position: fixed;
+            top: 2.5%;
+            left: 3%;
+            width: 90%;
+            height: 90%;
+            background-color: rgba(0, 0, 0, 1);
+            border: 3px solid neon-green;
+            box-shadow: 0 0 20px green;
+            z-index: 14;
+            text-align: center;
+            padding: 20px;
+            overflow: auto;
+            
+            
+            
+        }
+
+        .content.active {
+            display: block;
+        }
+
+
+        .scrollable-buttons {
+    max-height: 60%; 
+    overflow-y: scroll; 
+    margin: 10px 0;
+    width: 50%;
+    border: 2px solid #00ff99; /* Verde neón */
+    padding: 10px;
+    background-color: #1e1e2f; /* Fondo oscuro para ciberseguridad */
+    border-radius: 10px;
+}
+
+.scrollable-buttons::-webkit-scrollbar {
+    width: 10px;
+}
+
+.scrollable-buttons::-webkit-scrollbar-thumb {
+    background-color: #00ff99; /* Color del scroll */
+    border-radius: 10px;
+}
+
+.job-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    color: #cfcfcf; /* Texto claro */
+    background-color: #0d0d1a; /* Fondo oscuro */
+    border: 2px solid #3399ff; /* Borde azul */
+    border-radius: 5px;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.job-button:hover {
+    background-color: #00ff99; /* Verde neón */
+    color: #000;
+    font-size: 2rem;
+   
+}
+@media screen and (min-aspect-ratio: 1/1) {
+    .titulo {
+        left: 6%;
+        top: -2%;
+        z-index: 1000;
+    }
+}
+
+
+@media screen and (max-aspect-ratio: 1/1) {
+    .titulo {
+        left: 50%;
+        transform: translateX(-50%);
+        top: 15%;
+        width: 75%;
+    }
+}
+
+
+
+.contact-icons {
+    position: fixed;
+    top: 3%;
+    right: 10%;
+    
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    z-index: 3;
+}
+
+.contact-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    padding: 0 0 0 0;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #000c05;
+    border: 2px solid #ffffff;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.contact-icon img {
+    width: 30px;
+    height: 30px;
+}
+
+.contact-icon:hover {
+    transform: scale(1.2);
+    background-color: #00240f;
+}
+
+
+
+
+
+
+.ala {
+    font-size: 40px;
+    color: rgb(0, 247, 255);
+    padding: 20px;
+    background-color: rgb(8, 8, 8);
+    border: 1px solid rgb(255, 13, 13);
+    border-radius: 30px;
+    }
+
+
+    .job-info {
+    position: absolute;
+    top: 10%;
+    right: 15%;
+    transform: translate(28%, 33%);
+    background-color: black;
+    color: white;
+    padding: 20px;
+    border: 3px solid #00ff99;
+    border-radius: 10px;
+    width: 40%;
+    height: 70%;
+    text-align: center;
+    display: none;
+    z-index: 100;
+}
+
+.job-info img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+.job-info h2 {
+    margin-bottom: 10px;
+}
+
+.close-btn {
+    display: block;
+    margin: 10px auto;
+    padding: 5px 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.electricista-info {
+    position: absolute;
+    top: 50%;
+    right: 2%;
+    transform: translate(0%, -20%);
+    background-color: black;
+    color: white;
+    padding: 20px;
+    border: 3px solid #ffcc00;
+    border-radius: 10px;
+    width: 40%;
+    height: 70%;
+    text-align: center;
+    display: none;
+    z-index: 100;
+}
+.admin {
+    background-color: black;
+
+
+}
+.electricista-info img {
+    width: 200px;
+    height: auto;
+    margin-bottom: 10px;
+    border: 2px solid #ffcc00;
+    border-radius: 5px;
+}
+
+.electricista-info h2 {
+    margin-bottom: 10px;
+}
+
+.electricista-info p {
+    margin-bottom: 15px;
+}
+
+.close-btn {
+    display: block;
+    margin: 10px auto;
+    padding: 5px 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+
+    </style>
+</head>
+<body>
+<h1 class="tit">Como te puedo ayudar ?</h1>
+
+<div class="contact-icons">
+    <a href="https://wa.me/542944116995" target="_blank" class="contact-icon whatsapp" title="WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+    <a href="https://t.me/BargasLautaro" target="_blank" class="contact-icon telegram" title="Telegram">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram">
+    </a>
+    <a href="mailto:ejemplo@correo.com" class="contact-icon email" title="Correo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" alt="Email">
+    </a>
+    <a href="https://www.linkedin.com/in/nehuen-lautaro-bargas-919501339/" target="_blank" class="contact-icon linkedin" title="LinkedIn">
+        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
+    </a>
+    <a href="https://github.com/bargas-lautaro/" target="_blank" class="contact-icon github" title="GitHub">
+        <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub">
+    </a>
+
+
+        <style>
+        .github {
+            background: white;
+            border-color: rgb(0, 180, 204);
+        }
+        .github:hover {
+            background: rgb(20, 239, 255);
+            color: rgb(255, 255, 255);
+        }
+        </style>
+
+
+
+</div>
+
+
+
+<div class="arrow up" onclick="moveUp()">▲</div>
+<div class="container">
+   
+    <div class="button-list" id="buttonList">
+        <div class="button active">Curriculum</div>
+        <div class="button" id="sysadmin">SysAdmin / Administrador de Sistemas</div>
+        <div class="button">Electricista</div>
+        <div class="button">Profesor Particular</div>
+        <div class="button">Programador Front-end</div>
+        <div class="button">VEREMOS</div>
+    </div>
+</div>
+<div class="arrow down" onclick="moveDown()">▼</div>
+<div class="arrow left" onclick="closeContent()">◄</div>
+<div class="arrow right" onclick="openContent()">►</div>
+
+<div class="content" id="contentTodos">Contenido de Todos</div>
+
+
+
+<div class="content admin" id="contentAdmin">
+    
+    <h2 class="admin-title" id="adminTitle">Administrador de Sistemas</h2>
+
+<style>
+@keyframes admin-shake {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  25%  { transform: translate(-1px, 1px) rotate(-0.5deg); }
+  50%  { transform: translate(1px, -0.5px) rotate(0.5deg); }
+  75%  { transform: translate(-0.5px, 0.5px) rotate(0.5deg); }
+  100% { transform: translate(0.5px, -1px) rotate(-0.5deg); }
+}
+
+.admin-title {
+  font-family: 'Roboto', Arial, sans-serif;
+  color: #39ff14;
+  letter-spacing: 0.35em;
+  font-size: 2.2em;
+  text-align: center;
+  margin-bottom: 20px;
+  animation: admin-shake 0.25s infinite alternate;
+  text-shadow: 0 0 8px #39ff14, 0 0 16px #39ff14;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(.4,2,.6,1), animation 0.3s ease-in-out;
+}
+.admin-title.hovered {
+  transform: scale(2);
+  animation: admin-shake-hover 0.25s infinite alternate;
+}
+.admin-title.clicked {
+  transform: scale(4);
+  animation: admin-shake-click 0.25s infinite alternate;
+}
+
+@keyframes admin-shake-hover {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  25%  { transform: translate(-2px, 2px) rotate(-1.5deg); }
+  50%  { transform: translate(2px, -1.5px) rotate(1.5deg); }
+  75%  { transform: translate(-1.5px, 1.5px) rotate(1.5deg); }
+  100% { transform: translate(1.5px, -2px) rotate(-1.5deg); }
+}
+
+@keyframes admin-shake-click {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  25%  { transform: translate(-4px, 3px) rotate(-2deg); }
+  50%  { transform: translate(4px, -3px) rotate(2deg); }
+  75%  { transform: translate(-3px, 3px) rotate(2deg); }
+  100% { transform: translate(3px, -4px) rotate(-2deg); }
+}
+</style>
+
+<script>
+const title = document.getElementById('adminTitle');
+
+title.addEventListener('mouseenter', () => {
+  title.classList.add('hovered');
+});
+
+title.addEventListener('mouseleave', () => {
+  title.classList.remove('hovered');
+  title.classList.remove('clicked');
+});
+
+let pressTimer;
+title.addEventListener('mousedown', () => {
+  pressTimer = setTimeout(() => {
+    title.classList.remove('hovered');
+    title.classList.add('clicked');
+  }, 3000);
+});
+title.addEventListener('mouseup', () => {
+  clearTimeout(pressTimer);
+});
+</script>
+
+
+
+   <p class="typed-text"></p>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.typed-text {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.3em;
+  color: aqua;
+  width: 100%;
+  white-space: pre-line;
+  overflow: hidden;
+}
+</style>
+
+<script>
+const textoCompleto = `Gestión y mantenimiento de redes y sistemas operativos, con enfoque en servidores Linux.
+Certificado en Administración de Redes y Ciberseguridad, especializado en sistemas Linux.`;
+
+const p = document.querySelector('.typed-text');
+let timer;
+
+function escribirTextoDesdeCero() {
+  clearTimeout(timer);
+  p.textContent = '';
+  let i = 0;
+  function escribir() {
+    if (i < textoCompleto.length) {
+      p.textContent += textoCompleto.charAt(i);
+      i++;
+      timer = setTimeout(escribir, 70);
+    }
+  }
+  escribir();
+}
+
+document.getElementById('sysadmin').addEventListener('click', escribirTextoDesdeCero);
+</script>
+
+<h3 style="position: relative; left: -20%; font-family: 'Roboto', Arial, sans-serif; color: #ff00bf; scale:1.5; ">
+    Ejemplos de trabajos que realizo
+</h3>
+    <div class="scrollable-buttons">
+        <button class="job-button">Configuración de servidores Linux</button>
+        <button class="job-button">Gestión de usuarios y permisos</button>
+        <button class="job-button">Implementación de políticas de seguridad</button>
+        <button class="job-button">Configuración de VPN</button>
+        <button class="job-button">Monitoreo de redes</button>
+        <button class="job-button">Soporte técnico avanzado</button>
+        <button class="job-button">Automatización con scripts</button>
+        <button class="job-button">Gestión de backups</button>
+        <button class="job-button">Implementación de sistemas de virtualización</button>
+        <button class="job-button">Optimización de rendimiento de servidores</button>
+        <button class="job-button">Mantenimiento de firewalls</button>
+        <button class="job-button">Despliegue de aplicaciones</button>
+        <button class="job-button">Gestión de bases de datos</button>
+        <button class="job-button">Configuración de balanceadores de carga</button>
+        <button class="job-button">Auditorías de seguridad</button>
+        <button class="job-button">Soporte en migraciones</button>
+        <button class="job-button">Monitoreo de logs</button>
+        <button class="job-button">Diseño de redes empresariales</button>
+        <button class="job-button">Solución de problemas de conectividad</button>
+        <button class="job-button">Despliegue de entornos de desarrollo</button>
+        <button class="job-button">Configuración de servidores web</button>
+        <button class="job-button">Gestión de dominios y DNS</button>
+        <button class="job-button">Implementación de sistemas de correo electrónico</button>
+        <button class="job-button">Capacitación a usuarios finales</button>
+        <button class="job-button">Configuración de sistemas de monitoreo</button>
+        <button class="job-button">Integración de servicios en la nube</button>
+        <button class="job-button">Gestión de incidentes críticos</button>
+        <button class="job-button">Soporte en proyectos de TI</button>
+        <button class="job-button">Configuración de políticas de acceso remoto</button>
+    </div>
+    
+    <div style="position: relative; width: 45%; left: 53%; top:-63%;" id="job-main">
+        <div class="job-content" data-job="Configuración de servidores Linux" style="display:none;">
+          <h2  style="color: rgb(255, 25, 152);">Configuración de servidores Linux</h2>
+          <p style="color: aqua;">Instalación, configuración y optimización de servidores Linux adaptados a distintos 
+            entornos: caseros, empresariales, escolares y laboratorios. Incluye la selección
+             de distribuciones, ajuste de servicios (web, archivos, correo, bases de datos), 
+             configuración de seguridad, usuarios y permisos, automatización de tareas y respaldo. 
+             Se realiza tanto en hardware físico como en máquinas virtuales, asegurando estabilidad, 
+             rendimiento y facilidad de administración según las necesidades del cliente.</p>
+          <img src="https://via.placeholder.com/150" alt="Linux Server">
+        </div>
+
+        <div class="job-content" data-job="Solución de problemas de conectividad" style="display:none;">
+  <h2 style="color: #c800ff; text-shadow: 0 0 12px #c800ff, 0 0 24px #c800ff;">Solución de problemas de conectividad</h2>
+  <p style="color: aqua;">
+    Diagnóstico y resolución de fallos de conexión en redes cableadas e inalámbricas. Se analizan configuraciones IP, DNS, puerta de enlace, conflictos de red, interferencias en Wi-Fi, problemas de hardware y errores de software. Se utilizan herramientas como ping, traceroute, ipconfig/ifconfig, netstat, Wireshark y escáneres de red. Se aplican soluciones como asignación de direcciones estáticas, reinicio de servicios de red, cambio de canales, reemplazo de componentes defectuosos, y documentación del incidente con recomendaciones preventivas.
+  </p>
+  <img src="https://via.placeholder.com/150" alt="Conectividad">
+</div>
+        <div class="job-content" data-job="Despliegue de entornos de desarrollo" style="display:none;">
+  <h2 style="color: #c800ff; text-shadow: 0 0 12px #c800ff, 0 0 24px #c800ff;">Despliegue de entornos de desarrollo</h2>
+  <p style="color: aqua;">
+    Instalación y configuración de entornos de desarrollo adaptados a distintos lenguajes y frameworks (Python, Node.js, PHP, Java, entre otros). Se implementan servidores locales o virtuales con las herramientas necesarias (editores, compiladores, servidores locales, bases de datos). Se utilizan soluciones como Docker, Vagrant o entornos virtualizados con Visual Studio Code, Git, pip/npm, entornos con aislamiento de dependencias y gestión de versiones. También se automatizan procesos de instalación y documentación para facilitar la reproducción del entorno por distintos equipos de trabajo.
+  </p>
+  <img src="https://via.placeholder.com/150" alt="Entorno de Desarrollo">
+</div>
+
+<div class="job-content" data-job="Configuración de servidores web" style="display:none;">
+  <h2 style="color: #c800ff; text-shadow: 0 0 12px #c800ff, 0 0 24px #c800ff;">Configuración de servidores web</h2>
+  <p style="color: aqua;">
+    Implementación y personalización de servidores web como Apache, Nginx y Lighttpd. Se configura alojamiento de sitios estáticos y dinámicos, redirecciones, certificados SSL, balanceo de carga, reglas de seguridad, autenticación de usuarios, compresión, caching y optimización del tiempo de carga. Se integran con PHP, Python, Node.js y bases de datos, asegurando disponibilidad, rendimiento y compatibilidad con estándares modernos. También se implementan herramientas de monitoreo y alertas para mantener la estabilidad del servicio.
+  </p>
+  <img src="https://via.placeholder.com/150" alt="Servidor Web">
+</div>
+
+        <div class="job-content" data-job="Gestión de usuarios y permisos" style="display:none;">
+          <h2 style="color: rgb(255, 0, 234);">Gestión de usuarios y permisos</h2>
+          <p style="color: aqua;">
+            Administración de cuentas de usuario, grupos y permisos para garantizar
+             la seguridad y el acceso adecuado en sistemas Linux, Windows y 
+             plataformas web. Se gestiona el control de acceso tanto en entornos 
+             empresariales como en páginas y servicios, asegurando que cada usuario 
+             tenga los privilegios necesarios y protegiendo la integridad de los sistemas.
+          </p>
+          <img src="https://via.placeholder.com/150" alt="Usuarios y Permisos">
+        </div>
+        <div class="job-content" data-job="Implementación de políticas de seguridad" style="display:none;">
+          <h2  style="color: rgb(255, 0, 255);">Implementación de políticas de seguridad</h2>
+        <p style="color: aqua;"></p>
+            Implementación de políticas de seguridad en sistemas Linux mediante herramientas como <b>iptables</b> y <b>firewalld</b> para control de tráfico, <b>SELinux</b> y <b>AppArmor</b> para restricción de permisos, <b>auditd</b> para auditoría de eventos, y <b>fail2ban</b> para protección contra accesos no autorizados. Se configuran reglas, monitoreo y alertas para prevenir amenazas internas y externas, asegurando la integridad y confidencialidad de los datos.
+        </p>
+        <img src="https://via.placeholder.com/150" alt="Políticas de Seguridad">
+        </div>
+        <div class="job-content" data-job="Configuración de VPN" style="display:none;">
+  <h2 style="color: rgb(255, 0, 242);">Configuración de VPN</h2>
+  <p style="color: aqua;">
+    Configuración y optimización de redes privadas virtuales seguras para acceso remoto y protección de datos. Se utilizan herramientas como OpenVPN, WireGuard y StrongSwan. Se asegura el cifrado de extremo a extremo, autenticación por certificados, implementación de túneles divididos y conexión a redes corporativas desde múltiples dispositivos con alta compatibilidad. Se configuran también DNS internos, scripts de reconexión automática y políticas de control de acceso, garantizando privacidad y rendimiento.
+  </p>
+  <img src="https://via.placeholder.com/150" alt="VPN Image">
+</div>
+
+<div class="job-content" data-job="Monitoreo de redes" style="display:none;">
+  <h2 style="color: rgb(234, 0, 255);">Monitoreo de redes</h2>
+  <p style="color: aqua;">
+    Supervisión constante del tráfico de red mediante herramientas como Wireshark, ntopng, Zabbix y Nagios. Detección de anomalías, latencias y posibles amenazas. Se configuran alertas automatizadas, generación de reportes periódicos y visualización gráfica del estado de enlaces y dispositivos. Permite prevenir fallos antes de que impacten en los usuarios finales y facilita la toma de decisiones para escalabilidad de red.
+  </p>
+  <img src="https://via.placeholder.com/180" alt="Monitoreo Image">
+</div>
+
+<div class="job-content" data-job="Soporte técnico avanzado" style="display:none;">
+  <h2 style="color: rgb(255, 0, 255);">Soporte técnico avanzado</h2>
+  <p style="color: aqua;">
+    Resolución de incidentes complejos en sistemas operativos, redes y hardware. Diagnóstico detallado de fallos, recuperación ante errores graves, instalación de software crítico y asistencia remota o presencial. Se abordan problemas relacionados con rendimiento, conectividad, mal funcionamiento de servicios y errores de configuración, ofreciendo soluciones documentadas y adaptadas al entorno específico del cliente.
+  </p>
+  <img src="https://via.placeholder.com/120" width="200px" height="200px" alt="Soporte Image">
+</div>
+
+<div class="job-content" data-job="Automatización con scripts" style="display:none;">
+  <h2 style="color: rgb(247, 0, 255);">Automatización con scripts</h2>
+  <p style="color: aqua;">
+    Desarrollo de scripts personalizados en Bash, Python y PowerShell para automatizar tareas administrativas, copias de seguridad, limpieza de logs, generación de informes, instalación de software, monitoreo de procesos y despliegue de sistemas. Mejora de eficiencia y reducción de errores humanos. También se integran con cron y systemd para tareas programadas y eventos críticos del sistema.
+  </p>
+  <img src="https://via.placeholder.com/150" alt="Automatización">
+</div>
+
+     <div class="job-content" data-job="Gestión de backups" style="display:none;">
+  <h2 style="color: #c800ff; text-shadow: 0 0 12px #c800ff, 0 0 24px #c800ff;">Gestión de backups</h2>
+  <p style="color: aqua;">
+    Diseño, implementación y mantenimiento de sistemas de respaldo de datos tanto locales como en la nube. Se configuran copias automáticas, restauración ante fallos, pruebas periódicas de recuperación y políticas de retención. Se utilizan herramientas como rsync, Bacula, Veeam, y soluciones cloud (Google Drive, Dropbox, AWS S3) para asegurar la continuidad del negocio y la protección ante pérdida de información por errores humanos, ataques o desastres. Además, se documentan los procedimientos de recuperación y se automatiza la verificación de copias con pruebas de restauración.
+  </p>
+  <img src="https://via.placeholder.com/150" alt="Backups">
+</div>
+
+<div class="job-content" data-job="Implementación de sistemas de virtualización" style="display:none;">
+  <h2 style="color: #c800ff; text-shadow: 0 0 12px #c800ff, 0 0 24px #c800ff;">Implementación de sistemas de virtualización</h2>
+  <p style="color: aqua;">
+    Instalación y configuración de plataformas de virtualización como VMware, VirtualBox, Proxmox y KVM. Se crean máquinas virtuales para optimizar recursos, facilitar pruebas, aislar servicios y reducir costos de hardware. Incluye la gestión de snapshots, migración de máquinas, balanceo de carga y administración centralizada. Se aplican configuraciones avanzadas de red virtual, almacenamiento compartido y alta disponibilidad para entornos empresariales y educativos.
+  </p>
+  <img src="https://via.placeholder.com/150" alt="Virtualización">
+</div>
+
+<div class="job-content" data-job="Optimización de rendimiento de servidores" style="display:none;">
+  <h2 style="color: #c800ff; text-shadow: 0 0 12px #c800ff, 0 0 24px #c800ff;">Optimización de rendimiento de servidores</h2>
+  <p style="color: aqua;">
+    Análisis y ajuste de parámetros de hardware y software para maximizar la eficiencia de servidores Linux y Windows. Se realiza tuning de CPU, memoria, disco y red, configuración de servicios críticos, cacheo, balanceo de procesos y monitoreo de recursos. Se aplican buenas prácticas para reducir tiempos de respuesta, evitar cuellos de botella y garantizar la estabilidad bajo cargas intensivas. Se utilizan herramientas como top, htop, iostat, vmstat y analítica de logs de rendimiento para decisiones basadas en datos.
+  </p>
+  <img src="https://via.placeholder.com/150" alt="Optimización">
+</div>
+
+<div class="job-content" data-job="Mantenimiento de firewalls" style="display:none;">
+  <h2 style="color: #c800ff; text-shadow: 0 0 12px #c800ff, 0 0 24px #c800ff;">Mantenimiento de firewalls</h2>
+  <p style="color: aqua;">
+    Configuración, actualización y monitoreo de firewalls físicos y virtuales (iptables, pfSense, UFW, firewalld). Se definen reglas de acceso, segmentación de redes, protección contra ataques externos e internos, y auditoría de tráfico. Se realizan revisiones periódicas, actualización de firmware, generación de reportes de eventos y respuesta ante incidentes para mantener la seguridad y disponibilidad de los sistemas. Se establecen también listas blancas, negras y zonas de seguridad por niveles.
+  </p>
+  <img src="https://via.placeholder.com/150" alt="Firewalls">
+</div>
+
+<div class="job-content" data-job="Despliegue de aplicaciones" style="display:none;">
+  <h2 style="color: #c800ff; text-shadow: 0 0 12px #c800ff, 0 0 24px #c800ff;">Despliegue de aplicaciones</h2>
+  <p style="color: aqua;">
+    Instalación, configuración y puesta en marcha de aplicaciones empresariales, educativas y de desarrollo en servidores Linux y Windows. Se gestionan dependencias, bases de datos, servicios web y seguridad. Se automatizan procesos de despliegue con herramientas como Docker, Ansible y scripts personalizados, asegurando funcionamiento estable y seguro. Se crean entornos de staging, integración continua y se documenta el procedimiento completo para reproducibilidad y soporte técnico.
+  </p>
+  <img src="https://via.placeholder.com/150" alt="Despliegue">
+</div>
+
+<div class="job-content" data-job="Gestión de bases de datos" style="display:none;">
+  <h2 style="color: #c800ff; text-shadow: 0 0 12px #c800ff, 0 0 24px #c800ff;">Gestión de bases de datos</h2>
+  <p style="color: aqua;">
+    Administración integral de bases de datos MySQL, PostgreSQL, MariaDB y otras. Incluye instalación, configuración, respaldo, restauración, optimización de consultas, gestión de usuarios y permisos, y monitoreo de rendimiento. Se aplican políticas de seguridad y se automatizan tareas para garantizar la integridad y disponibilidad de la información. Además, se configuran réplicas, particionamiento, triggers, procedimientos almacenados y se analizan cuellos de botella en ejecución de sentencias SQL.
+  </p>
+  <img src="https://via.placeholder.com/150" alt="Bases de datos">
+</div>
+
+       <div class="job-content" data-job="Configuración de balanceadores de carga" style="display:none;">
+  <h2 style="color: #c800ff; text-shadow: 0 0 12px #c800ff, 0 0 24px #c800ff;">Configuración de balanceadores de carga</h2>
+  <p style="color: aqua;">
+    Implementación y ajuste de balanceadores de carga como HAProxy, Nginx y LVS para distribuir el tráfico entre múltiples servidores. Se configuran reglas de balanceo, chequeos de salud, failover y escalabilidad, mejorando la disponibilidad y el rendimiento de servicios web, aplicaciones y bases de datos. También se establecen métricas de control, integración con DNS dinámico, políticas de redirección y técnicas de persistencia de sesión para mantener la experiencia del usuario.
+  </p>
+  <img src="https://via.placeholder.com/150" alt="Balanceadores">
+</div>
+
+<div class="job-content" data-job="Auditorías de seguridad" style="display:none;">
+  <h2 style="color: #c800ff; text-shadow: 0 0 12px #c800ff, 0 0 24px #c800ff;">Auditorías de seguridad</h2>
+  <p style="color: aqua;">
+    Evaluación exhaustiva de sistemas y redes para identificar vulnerabilidades, malas configuraciones y riesgos potenciales. Se realizan análisis de logs, escaneo de puertos, revisión de políticas de acceso y simulación de ataques. Se entregan informes detallados y recomendaciones para fortalecer la seguridad y cumplir normativas. También se realiza seguimiento post-auditoría para verificar la aplicación de correcciones y se ofrecen capacitaciones para mejorar prácticas internas.
+  </p>
+  <img src="https://via.placeholder.com/150" alt="Auditoría">
+</div>
+
+<div class="job-content" data-job="Soporte en migraciones" style="display:none;">
+  <h2 style="color: #c800ff; text-shadow: 0 0 12px #c800ff, 0 0 24px #c800ff;">Soporte en migraciones</h2>
+  <p style="color: aqua;">
+    Planificación y ejecución de migraciones de sistemas operativos, aplicaciones, bases de datos y servicios entre servidores físicos, virtuales o en la nube. Se minimizan tiempos de inactividad, se asegura la integridad de los datos y se realiza documentación de todo el proceso para facilitar futuras actualizaciones. Se implementan pruebas piloto, backups previos, validaciones post-migración y planes de contingencia ante errores.
+  </p>
+  <img src="https://via.placeholder.com/150" alt="Migraciones">
+</div>
+
+<div class="job-content" data-job="Monitoreo de logs" style="display:none;">
+  <h2 style="color: #c800ff; text-shadow: 0 0 12px #c800ff, 0 0 24px #c800ff;">Monitoreo de logs</h2>
+  <p style="color: aqua;">
+    Configuración de sistemas de registro y análisis de logs (Syslog, Logrotate, ELK Stack) para detectar incidentes, anomalías y optimizar procesos. Se implementan alertas automáticas, reportes periódicos y políticas de retención, facilitando la auditoría y la respuesta rápida ante problemas. También se integran filtros por severidad, correlación de eventos y dashboards visuales para facilitar el análisis diario.
+  </p>
+  <img src="https://via.placeholder.com/150" alt="Logs">
+</div>
+
+<div class="job-content" data-job="Diseño de redes empresariales" style="display:none;">
+  <h2 style="color: #c800ff; text-shadow: 0 0 12px #c800ff, 0 0 24px #c800ff;">Diseño de redes empresariales</h2>
+  <p style="color: aqua;">
+    Planificación y desarrollo de la arquitectura de redes empresariales seguras y eficientes. Incluye segmentación de redes, configuración de switches y routers, enlaces redundantes, VLANs, QoS y seguridad perimetral. Se realiza un relevamiento de necesidades, simulaciones de topología y se entrega documentación técnica completa. El diseño contempla escalabilidad, resiliencia y compatibilidad con servicios existentes.
+  </p>
+  <img src="https://via.placeholder.com/150" alt="Servidores Web">
+</div>
+
+<div class="job-content" data-job="Gestión de dominios y DNS" style="display:none;">
+  <h2 style="color: #c800ff; text-shadow: 0 0 12px #c800ff, 0 0 24px #c800ff;">Gestión de dominios y DNS</h2>
+  <p style="color: aqua;">
+    Administración de dominios y configuración de registros DNS para asegurar la correcta resolución de nombres. Se gestionan zonas directas e inversas, TTLs, redirecciones, subdominios, y validaciones SPF, DKIM y DMARC para correo electrónico. Se configuran servicios con Bind, Cloudflare o proveedores de hosting, asegurando disponibilidad global y protección contra secuestros de dominio.
+  </p>
+  <img src="https://via.placeholder.com/150" alt="DNS">
+</div>
+
+<div class="job-content" data-job="Implementación de sistemas de correo electrónico" style="display:none;">
+  <h2 style="color: #c800ff; text-shadow: 0 0 12px #c800ff, 0 0 24px #c800ff;">Implementación de sistemas de correo electrónico</h2>
+  <p style="color: aqua;">
+    Configuración de servidores de correo, cuentas y políticas antispam para comunicación empresarial segura. Se implementan servidores como Postfix, Dovecot o Microsoft Exchange, filtros de virus, listas negras, cifrado SSL/TLS y autenticación segura. Se integran clientes web como Roundcube u Outlook y se documenta el uso para los usuarios finales.
+  </p>
+  <img src="https://via.placeholder.com/150" alt="Correo Electrónico">
+</div>
+
+    <div class="job-content" data-job="Capacitación a usuarios finales" style="display:none;">
+  <h2 style="color: #c800ff; text-shadow: 0 0 12px #c800ff, 0 0 24px #c800ff;">Capacitación a usuarios finales</h2>
+  <p style="color: aqua;">
+    Formación y asesoría a usuarios sobre el uso seguro y eficiente de sistemas y herramientas tecnológicas. Se diseñan manuales personalizados, sesiones prácticas, talleres remotos o presenciales, y evaluaciones para verificar el aprendizaje. Se abordan temas como navegación segura, uso de software corporativo, prevención de malware y buenas prácticas en el uso del correo electrónico y redes internas.
+  </p>
+  <img src="https://via.placeholder.com/150" alt="Capacitación">
+</div>
+
+<div class="job-content" data-job="Configuración de sistemas de monitoreo" style="display:none;">
+  <h2 style="color: #c800ff; text-shadow: 0 0 12px #c800ff, 0 0 24px #c800ff;">Configuración de sistemas de monitoreo</h2>
+  <p style="color: aqua;">
+    Implementación de herramientas para supervisar el estado y rendimiento de servidores y servicios. Se configuran soluciones como Zabbix, Nagios, Prometheus y Grafana para monitoreo activo y reactivo, con paneles visuales, alertas por correo o Telegram, y generación automática de informes. Se integran métricas de red, uso de recursos, disponibilidad de servicios y logs del sistema.
+  </p>
+  <img src="https://via.placeholder.com/150" alt="Monitoreo">
+</div>
+
+<div class="job-content" data-job="Integración de servicios en la nube" style="display:none;">
+  <h2 style="color: #c800ff; text-shadow: 0 0 12px #c800ff, 0 0 24px #c800ff;">Integración de servicios en la nube</h2>
+  <p style="color: aqua;">
+    Conexión y administración de servicios cloud como AWS, Azure, Google Cloud, entre otros. Se realiza el despliegue de servidores virtuales, almacenamiento escalable, redes privadas virtuales, gestión de identidades y automatización mediante Terraform o scripts. Se asegura la integración con sistemas locales, la continuidad del negocio y se configuran respaldos y seguridad en entornos híbridos.
+  </p>
+  <img src="https://via.placeholder.com/150" alt="Cloud">
+</div>
+
+<div class="job-content" data-job="Gestión de incidentes críticos" style="display:none;">
+  <h2 style="color: #c800ff; text-shadow: 0 0 12px #c800ff, 0 0 24px #c800ff;">Gestión de incidentes críticos</h2>
+  <p style="color: aqua;">
+    Respuesta rápida y efectiva ante incidentes graves que afectan la operación de sistemas y redes. Se realiza diagnóstico inmediato, contención, análisis de causas y restauración del servicio. Se elaboran planes de recuperación, protocolos de escalamiento y documentación de cada incidente. Se incluyen análisis forense, monitoreo posterior y recomendaciones para evitar recurrencias.
+  </p>
+  <img src="https://via.placeholder.com/150" alt="Incidentes Críticos">
+</div>
+
+<div class="job-content" data-job="Soporte en proyectos de TI" style="display:none;">
+  <h2 style="color: #c800ff; text-shadow: 0 0 12px #c800ff, 0 0 24px #c800ff;">Soporte en proyectos de TI</h2>
+  <p style="color: aqua;">
+    Asistencia técnica y operativa en la ejecución y desarrollo de proyectos tecnológicos. Se colabora en el diseño de soluciones, adquisición de equipos, pruebas piloto, validación de requerimientos, migraciones, y documentación. También se apoya en la planificación, cronogramas, análisis de riesgos y comunicación con el equipo técnico y usuarios finales.
+  </p>
+  <img src="https://via.placeholder.com/150" alt="Proyectos TI">
+</div>
+
+<div class="job-content" data-job="Configuración de políticas de acceso remoto" style="display:none;">
+  <h2 style="color: #c800ff; text-shadow: 0 0 12px #c800ff, 0 0 24px #c800ff;">Configuración de políticas de acceso remoto</h2>
+  <p style="color: aqua;">
+    Definición y aplicación de reglas para el acceso seguro y controlado a sistemas desde ubicaciones externas. Se implementan conexiones por VPN, autenticación de dos factores, firewalls adaptativos, túneles cifrados y segmentación de permisos según el rol. Se monitorean accesos, se registran sesiones y se aplican políticas de horario o ubicación geográfica para mayor control.
+  </p>
+  <img src="https://via.placeholder.com/150" alt="Acceso Remoto">
+</div>
+
+    </div>
+    <script>
+      // Oculta todos los job-content al inicio
+      document.querySelectorAll('#job-main .job-content').forEach(div => div.style.display = 'none');
+      // Muestra solo el job-content correspondiente al botón pulsado
+      document.querySelectorAll('.scrollable-buttons .job-button').forEach(btn => {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('#job-main .job-content').forEach(div => div.style.display = 'none');
+          const jobDiv = document.querySelector(`#job-main .job-content[data-job="${btn.textContent.trim()}"]`);
+          if (jobDiv) jobDiv.style.display = 'block';
+        });
+      });
+    </script>
+
+
+</div>
+
+
+
+<div class="content" id="contentElectricista">
+    <h1 class="electricista-title">
+        <span class="emoji-vibra">⚡</span>
+        <span class="emoji-vibra">🧰</span>
+        <span class="emoji-vibra">👷‍♂️</span>
+        Electricista
+        <span class="emoji-vibra">👷‍♀️</span>
+        <span class="emoji-vibra">🪛</span>
+        <span class="emoji-vibra">⚡</span>
+    </h1>
+    <style>
+    .electricista-title {
+        background: #000;
+        font-family: 'Roboto', Arial, sans-serif;
+        color: #39ff14;
+        font-size: 2.7em;
+        letter-spacing: 0.15em;
+        padding: 30px 0 30px 0;
+        margin-bottom: 30px;
+        border-radius: 18px;
+        text-align: center;
+        position: relative;
+        overflow: visible;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 18px;
+        box-shadow: 0 0 18px #39ff14, 0 0 40px #111 inset;
+    }
+    /* Vibración solo en los emojis */
+    .electricista-title .emoji-vibra {
+        display: inline-block;
+        animation: emoji-vibrar 0.35s infinite alternate;
+        will-change: transform;
+    }
+    @keyframes emoji-vibrar {
+        0%   { transform: translate(0, 0) rotate(0deg);}
+        20%  { transform: translate(-1px, 1px) rotate(-2deg);}
+        40%  { transform: translate(1px, -1px) rotate(2deg);}
+        60%  { transform: translate(-1px, 1px) rotate(-2deg);}
+        80%  { transform: translate(1px, -1px) rotate(2deg);}
+        100% { transform: translate(0, 0) rotate(0deg);}
+    }
+    /* Rayos animados a los costados */
+    .electricista-title::before,
+    .electricista-title::after {
+        content: "⚡";
+        font-size: 2.2em;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #39ff14;
+        text-shadow: 0 0 12px #39ff14, 0 0 24px #39ff14;
+        animation: rayo-zap 1.2s infinite alternate;
+        pointer-events: none;
+    }
+    .electricista-title::before {
+        left: -1.5em;
+        animation-delay: 0s;
+    }
+    .electricista-title::after {
+        right: -1.5em;
+        animation-delay: 0.6s;
+    }
+    @keyframes rayo-zap {
+        0%   { opacity: 0.7; filter: blur(0.5px);}
+        50%  { opacity: 1; filter: blur(2px);}
+        100% { opacity: 0.7; filter: blur(0.5px);}
+    }
+    /* Cables, herramientas y personas con casco (emojis) extra */
+    .electricista-title span.cable {    
+        font-size: 1.5em;
+        margin: 0 0.2em;
+        filter: drop-shadow(0 0 4px #39ff14);
+    }
+    </style>
+    <div id="electricista-info-container"></div>
+
+    <p id="electricista-desc" style="
+        background: #000;
+        color: #39ff14;
+        position: absolute;
+        right: 2.5%;
+        width: 40%;
+        top: 40%;
+        font-family: 'Roboto', Arial, sans-serif;
+        font-size: 1.3em;
+        letter-spacing: 0.08em;
+        border: 2px solid #39ff14;
+        border-radius: 12px;
+        box-shadow: 0 0 12px #39ff14, 0 0 24px #111 inset;
+        padding: 18px 24px;
+        margin-bottom: 18px;
+        text-align: center;
+        transition: opacity 0.3s;
+    ">
+        Especialista en instalaciones eléctricas residenciales e industriales. Experiencia en mantenimiento preventivo y solución de problemas eléctricos.
+    </p>
+    <p class="electricista-ejemplo">Ejemplos de trabajos realizados:</p>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+    .electricista-ejemplo {
+        font-family: 'Orbitron', 'Roboto', Arial, sans-serif;
+        font-size: 1.5em;
+        color: #ffe600;
+        text-shadow: 0 0 10px #ffe600, 0 0 30px #fff700, 0 0 60px #ffe600;
+        letter-spacing: 0.12em;
+        position: relative;
+        left: -20%;
+        margin-bottom: 10px;
+        animation: electricista-glow 1.2s infinite alternate;
+        font-weight: bold;
+    }
+    @keyframes electricista-glow {
+        0% {
+            color: #ffe600;
+            text-shadow: 0 0 10px #ffe600, 0 0 30px #fff700, 0 0 60px #ffe600;
+            filter: brightness(1.1);
+        }
+        50% {
+            color: #fff700;
+            text-shadow: 0 0 30px #fff700, 0 0 60px #ffe600, 0 0 90px #fff700;
+            filter: brightness(1.6);
+        }
+        100% {
+            color: #ffe600;
+            text-shadow: 0 0 10px #ffe600, 0 0 30px #fff700, 0 0 60px #ffe600;
+            filter: brightness(1.1);
+        }
+    }
+    </style>
+    <div class="scrollable-buttons"  style="position: relative;" id="electricista-jobs">
+        <button class="job-button">Instalación de sistemas eléctricos residenciales</button>
+        <button class="job-button">Mantenimiento de tableros eléctricos</button>
+        <button class="job-button">Instalación de iluminación LED</button>
+        <button class="job-button">Cableado estructurado para oficinas</button>
+        <button class="job-button">Reparación de electrodomésticos</button>
+        <button class="job-button">Diseño de redes eléctricas</button>
+        <button class="job-button">Instalación de sistemas de puesta a tierra</button>
+        <button class="job-button">Mantenimiento preventivo en fábricas</button>
+        <button class="job-button">Automatización de sistemas eléctricos</button>
+        <button class="job-button">Instalación de generadores eléctricos</button>
+        <button class="job-button">Supervisión de proyectos eléctricos</button>
+        <button class="job-button">Reparación de fallos eléctricos</button>
+        <button class="job-button">Instalación de sistemas de energía solar</button>
+        <button class="job-button">Asesoría en ahorro energético</button>
+        <button class="job-button">Reemplazo de interruptores y tomacorrientes</button>
+        <button class="job-button">Instalación de transformadores</button>
+        <button class="job-button">Monitoreo y optimización del consumo eléctrico</button>
+        <button class="job-button">Configuración de sistemas de automatización</button>
+        <button class="job-button">Inspección de redes eléctricas industriales</button>
+        <button class="job-button">Diagnóstico y solución de cortocircuitos</button>
+    </div>
+    <script>
+      // Oculta el párrafo al hacer clic en cualquier botón de electricista
+      document.querySelectorAll('#electricista-jobs .job-button').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const desc = document.getElementById('electricista-desc');
+          if (desc) desc.style.display = 'none';
+        });
+      });
+    </script>
+</div>
+
+
+
+<div class="content" id="contentProfesor">
+    <h2 class="ala">Profesor Particular</h2>
+   
+<div class="carousel-container">
+  <button class="carousel-btn prev">◄</button>
+  <div class="subject-carousel" id="subjectCarousel">
+    <div class="carousel-track">
+      <button class="subject-button">Estática</button>
+      <button class="subject-button">Matemática</button>
+      <button class="subject-button">Física</button>
+      <button class="subject-button">Química</button>
+      <button class="subject-button">Físico-Química</button>
+      <button class="subject-button">Tecnología</button>
+      <button class="subject-button">Programación (Nivel Inicial)</button>
+      <button class="subject-button">Resistencia de Materiales</button>
+    </div>
+  </div>
+
+  <button class="carousel-btn next">►</button>
+</div>
+
+  <div id="infoMateria" style="position: absolute; top: 45%; width: 80%; left: 10%; color: rgb(0, 247, 255); font-size: 1.2em; text-align: center;"></div>
+
+
+    <div id="subject-info" class="subject-info">
+        <h3 class="subject-title"></h3>
+        <p class="subject-description"></p>
+        <div class="subject-images"></div>
+        <div class="subject-links"></div>
+    </div>
+
+
+
+</div>
+
+
+
+
+<div class="content" id="contentProgramador">Contenido de Programador Front-end</div>
+<div class="content" id="contentOpcion6">COSAS A TERMINAR</div>
+
+<script>
+  let currentListIndex = -1; // Índice actual en la lista de botones
+let currentIndex = 0; // Índice general para navegación global
+const buttons = document.querySelectorAll('.button');
+const buttonList = document.getElementById('buttonList');
+const contents = document.querySelectorAll('.content');
+
+document.addEventListener('keydown', function(event) {
+    const activeContent = document.querySelector('.content.active'); // Div actualmente abierto
+    const listButtons = activeContent ? activeContent.querySelectorAll('.job-button') : null; // Botones dentro del div abierto
+
+    if (event.key === "ArrowUp") {
+        if (listButtons && listButtons.length > 0) {
+            // Navegación en la lista del div
+            event.preventDefault();
+            currentListIndex = (currentListIndex - 1 + listButtons.length) % listButtons.length;
+            updateListSelection(listButtons, currentListIndex);
+        } else {
+            // Navegación general
+            document.querySelector('.arrow.up').click();
+        }
+    } else if (event.key === "ArrowDown") {
+        if (listButtons && listButtons.length > 0) {
+            // Navegación en la lista del div
+            event.preventDefault();
+            currentListIndex = (currentListIndex + 1) % listButtons.length;
+            updateListSelection(listButtons, currentListIndex);
+        } else {
+            // Navegación general
+            document.querySelector('.arrow.down').click();
+        }
+    } else if (event.key === "ArrowLeft") {
+        document.querySelector('.arrow.left').click(); // Simula clic en "arrow-left"
+    } else if (event.key === "ArrowRight") {
+        document.querySelector('.arrow.right').click(); // Simula clic en "arrow-right"
+    }
+});
+
+document.addEventListener('wheel', function(event) {
+    if (event.deltaY < 0) {
+        // Rueda del mouse hacia arriba
+        document.querySelector('.arrow.up').click();
+    } else if (event.deltaY > 0) {
+        // Rueda del mouse hacia abajo
+        document.querySelector('.arrow.down').click();
+    }
+});
+
+// Selecciona el contenedor principal que incluye la lista de botones
+const container = document.querySelector('.container');
+
+// Agrega el evento de clic al contenedor principal
+container.addEventListener('click', function(event) {
+    // Simula un clic en "arrow-right" si se hace clic dentro del contenedor principal
+    document.querySelector('.arrow.right').click();
+});
+
+
+ // Seleccionamos todos los botones de trabajos
+ const jobButtons = document.querySelectorAll('.job-button');
+
+jobButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    // Obtenemos el texto del botón
+    const selectedJob = button.textContent.trim();
+
+    // 1) Ocultamos todo
+    document.querySelectorAll('.job-content').forEach(content => {
+      content.style.display = 'none';
+    });
+
+    // 2) Mostramos solo las secciones que coincidan con ese "data-job"
+    document.querySelectorAll(`.job-content[data-job="${selectedJob}"]`).forEach(content => {
+      content.style.display = 'block';
+    });
+  });
+});
+
+
+function updateButtons() {
+    buttons.forEach((button, index) => {
+        button.classList.remove('active');
+        if (index === currentIndex) {
+            button.classList.add('active');
+        }
+    });
+    const offset = -(currentIndex * buttons[0].offsetHeight + 10 * currentIndex - buttonList.offsetHeight / 2 + buttons[0].offsetHeight / 2);
+    buttonList.style.transform = `translateY(${offset}px)`;
+}
+
+function updateListSelection(buttons, index) {
+    buttons.forEach((button, i) => {
+        if (i === index) {
+            button.classList.add('active'); // Marca el botón seleccionado
+            button.scrollIntoView({ behavior: 'smooth', block: 'center' }); // Desplaza la lista si es necesario
+        } else {
+            button.classList.remove('active'); // Quita la selección de los demás botones
+        }
+    });
+}
+
+function openContent() {
+    contents.forEach(content => content.classList.remove('active'));
+    const activeContent = contents[currentIndex];
+    activeContent.classList.add('active');
+    currentListIndex = -1; // Reinicia el índice de la lista al abrir un nuevo div
+}
+
+function closeContent() {
+    contents.forEach(content => content.classList.remove('active'));
+    currentListIndex = -1; // Reinicia el índice de la lista al cerrar el div
+}
+
+const subjects = {
+    "Estática": {
+        description: "La estática es una rama de la mecánica que estudia el equilibrio de los cuerpos bajo la acción de fuerzas. Se enfoca en analizar sistemas en reposo o con movimiento constante, aplicando principios como las leyes de Newton y el equilibrio de fuerzas y momentos. Es fundamental en ingeniería para el diseño de estructuras, maquinarias y otros sistemas que requieren estabilidad y balance.",
+        images: ["static1.jpg", "static2.jpg"],
+        links: [
+            { text: "Ver más", url: "https://example.com/estatica" }
+        ]
+    },
+    "Matemática": {
+        description: "La ciencia de los números y las relaciones.",
+        images: ["math1.jpg", "math2.jpg"],
+        links: [
+            { text: "Ver más", url: "https://example.com/matematica" }
+        ]
+    },
+    "Física": {
+        description: "La ciencia que estudia el comportamiento de la materia y la energía.",
+        images: ["physics1.jpg", "physics2.jpg"],
+        links: [
+            { text: "Ver más", url: "https://example.com/fisica" }
+        ]
+    },
+    "Química": {
+        description: "La ciencia que estudia la composición, estructura y propiedades de la materia.",
+        images: ["chemistry1.jpg", "chemistry2.jpg"],
+        links: [
+            { text: "Ver más", url: "https://example.com/quimica" }
+        ]
+    },
+    "Físico-Química": {
+        description: "Una combinación de física y química para entender las propiedades de la materia.",
+        images: ["physchem1.jpg", "physchem2.jpg"],
+        links: [
+            { text: "Ver más", url: "https://example.com/fisicoquimica" }
+        ]
+    },
+    "Tecnología": {
+        description: "La tecnología es la aplicación del conocimiento científico y técnico para resolver problemas prácticos y mejorar la calidad de vida. Abarca desde herramientas simples hasta sistemas complejos como la inteligencia artificial, la robótica y las telecomunicaciones. Su evolución constante impulsa el progreso en áreas como la medicina, la industria, la educación y el entretenimiento, transformando la manera en que vivimos, trabajamos y nos relacionamos. La tecnología no solo se enfoca en la creación de dispositivos, sino también en optimizar procesos y encontrar soluciones innovadoras a los desafíos globales.",
+        images: ["tech1.jpg", "tech2.jpg"],
+        links: [
+            { text: "Ver más", url: "https://example.com/tecnologia" }
+        ]
+    },
+    "Programación (Nivel Inicial)": {
+        description: "Introducción al mundo de la programación para principiantes.",
+        images: ["coding1.jpg", "coding2.jpg"],
+        links: [
+            { text: "Ver más", url: "https://example.com/programacion" }
+        ]
+    },
+    "Resistencia de Materiales": {
+        description: "El estudio de cómo los materiales soportan cargas y fuerzas.",
+        images: ["materials1.jpg", "materials2.jpg"],
+        links: [
+            { text: "Ver más", url: "https://example.com/resistencia" }
+        ]
+    }
+};
+
+
+
+
+
+
+
+
+
+
+const subjectButtons = document.querySelectorAll('.subject-button');
+const subjectInfo = document.getElementById('subject-info');
+const subjectTitle = document.querySelector('.subject-title');
+const subjectDescription = document.querySelector('.subject-description');
+const subjectImages = document.querySelector('.subject-images');
+const subjectLinks = document.querySelector('.subject-links');
+
+subjectButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const subject = subjects[button.dataset.subject];
+        if (subject) {
+            subjectTitle.textContent = button.dataset.subject;
+            subjectDescription.textContent = subject.description;
+
+            // Cargar imágenes
+            subjectImages.innerHTML = '';
+            subject.images.forEach(image => {
+                const img = document.createElement('img');
+                img.src = image;
+                img.alt = button.dataset.subject;
+                subjectImages.appendChild(img);
+            });
+
+            // Cargar enlaces
+            subjectLinks.innerHTML = '';
+            subject.links.forEach(link => {
+                const linkButton = document.createElement('button');
+                linkButton.textContent = link.text;
+                linkButton.onclick = () => window.open(link.url, '_blank');
+                subjectLinks.appendChild(linkButton);
+            });
+
+            subjectInfo.classList.add('active');
+        }
+    });
+});
+
+
+function moveUp() {
+    currentIndex = (currentIndex - 1 + buttons.length) % buttons.length;
+    updateButtons();
+}
+
+function moveDown() {
+    currentIndex = (currentIndex + 1) % buttons.length;
+    updateButtons();
+}
+
+
+
+
+
+updateButtons();
+
+const track = document.querySelector('.carousel-track');
+const prev = document.querySelector('.carousel-btn.prev');
+const next = document.querySelector('.carousel-btn.next');
+const carousel = document.getElementById('subjectCarousel');
+let step = 200;
+
+function cloneItems() {
+  const items = [...track.children];
+  items.forEach(item => {
+    const clone = item.cloneNode(true);
+    track.appendChild(clone);
+  });
+  items.forEach(item => {
+    const clone = item.cloneNode(true);
+    track.insertBefore(clone, track.firstChild);
+  });
+}
+cloneItems();
+carousel.scrollLeft = track.offsetWidth / 3;
+
+prev.addEventListener('click', () => {
+  carousel.scrollBy({ left: -step, behavior: 'smooth' });
+});
+
+next.addEventListener('click', () => {
+  carousel.scrollBy({ left: step, behavior: 'smooth' });
+});
+
+carousel.addEventListener('scroll', () => {
+  const maxScroll = track.scrollWidth / 3 * 2;
+  const minScroll = track.scrollWidth / 3;
+  if (carousel.scrollLeft >= maxScroll) {
+    carousel.scrollLeft = minScroll;
+  }
+  if (carousel.scrollLeft <= 0) {
+    carousel.scrollLeft = maxScroll - 1;
+  }
+});
+
+carousel.addEventListener('wheel', e => {
+  e.preventDefault();
+  carousel.scrollBy({ left: e.deltaY * 3, behavior: 'smooth' });
+}, { passive: false });
+
+const textosPorMateria = {
+  "Estática": "Ofrezco clases de apoyo en Estática, comenzando desde los fundamentos: vectores, descomposición de fuerzas, equilibrio y leyes de Newton. Ideal para estudiantes que recién se inician o necesitan reforzar la base. También abordamos temas más avanzados como análisis de estructuras en 2 y 3 dimensiones, cuerpos rígidos, diagramas de cuerpo libre, y resolución de ejercicios de nivel universitario, especialmente para carreras como Ingeniería Mecánica, Civil o afines.",
+  "Matemática": "Clases de apoyo personalizadas en Matemática, desde nivel secundario hasta nivel universitario. Abordamos álgebra, funciones, ecuaciones, trigonometría, geometría y resolución de problemas aplicados. Ideal para reforzar conceptos, preparar exámenes o desarrollar habilidades matemáticas esenciales para carreras técnicas y científicas.",
+  "Física": "Clases de apoyo en Física desde nivel secundario hasta universitario. Trabajamos cinemática, dinámica, leyes de Newton, energía, trabajo, electricidad, magnetismo, fluidos y más. Explicaciones claras con ejemplos aplicados, ideales para preparar exámenes, ingresar a carreras técnicas o reforzar la base conceptual en materias de ingeniería.",
+  "Química": "Brindo clases de apoyo en Química desde nivel secundario hasta universitario. Trabajamos desde los conceptos fundamentales como la tabla periódica, enlaces químicos, estructuras atómicas y mol, hasta reacciones químicas, estequiometría, soluciones, ácidos y bases. Ideal para estudiantes que buscan comprender tanto la teoría como la aplicación práctica en laboratorio o en problemas de examen.",
+  "Físico-Química": "Clases de apoyo en Físico-Química para nivel secundario y universitario. Abordamos los vínculos entre materia y energía, leyes de los gases, cambios de estado, termodinámica, equilibrio químico, soluciones, y cinética. Ideal para estudiantes que buscan reforzar la base conceptual y resolver ejercicios con claridad, ya sea para exámenes escolares o materias universitarias relacionadas con ingeniería, química o bioquímica.",
+  "Tecnología": "Clases de apoyo en Tecnología para nivel secundario, cubriendo todos los contenidos del área. Trabajamos procesos productivos, herramientas manuales y digitales, materiales, estructuras, electricidad, sistemas mecánicos y electrónicos, energías, diseño técnico y lectura de planos. Ideal para acompañar el aprendizaje técnico con ejemplos prácticos y comprensión aplicada de los conceptos.",
+  "Programación (Nivel Inicial)": "Clases de apoyo en Programación para quienes se inician en el área. Se trabaja con fundamentos de lógica y algoritmos, estructuras básicas (condicionales, bucles, funciones), y ejemplos aplicados en lenguaje C. También se abordan conceptos esenciales de desarrollo web con HTML, CSS y JavaScript, para comprender desde cero la estructura, el estilo y la interactividad de páginas web.",
+  "Resistencia de Materiales": "Clases de apoyo en Resistencia de Materiales desde los conceptos fundamentales hasta contenidos de nivel universitario. Trabajamos cálculo de esfuerzos axiales, cortantes y flexionantes, análisis de deformaciones, momentos flectores, tensiones, propiedades mecánicas de materiales y comportamiento estructural. Ideal para estudiantes de ingeniería y carreras técnicas que necesiten reforzar la teoría y la resolución de ejercicios aplicados."
+};
+
+document.querySelectorAll('.subject-button').forEach(boton => {
+  boton.addEventListener('click', () => {
+    const texto = textosPorMateria[boton.textContent] || "Materia no encontrada.";
+    document.getElementById('infoMateria').textContent = texto;
+  });
+});
+
+
+</script>
+
+</body>
+</html>
