@@ -2,70 +2,57 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>BargasLautaro - Sistema de Registro</title>
+    <title>BargasLasssutaro - Conexión Final</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; background-color: #eef2f3; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; }
-        .container { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 350px; }
-        h2 { color: #2c3e50; font-size: 1.4rem; margin-top: 0; }
-        input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #d1d8e0; border-radius: 6px; box-sizing: border-box; }
-        button { width: 100%; padding: 12px; background-color: #3498db; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 1rem; transition: 0.3s; }
-        button:hover { background-color: #2980b9; }
-        #mensaje { margin-top: 15px; text-align: center; font-size: 0.9rem; font-weight: bold; }
-        header { font-weight: bold; margin-bottom: 10px; color: #555; }
+        body { font-family: sans-serif; display: flex; flex-direction: column; align-items: center; padding-top: 50px; background: #f4f7f6; }
+        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); width: 300px; }
+        input { width: 100%; padding: 10px; margin-bottom: 10px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; }
+        button { width: 100%; padding: 10px; background: #27ae60; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        #status { margin-top: 10px; font-size: 0.8rem; text-align: center; }
     </style>
 </head>
 <body>
 
-    <header>BargasLautaro</header>
-
-    <div class="container">
-        <h2>Enviar Información</h2>
-        <input type="text" id="nombre" placeholder="Nombre o Referencia">
-        <input type="text" id="dato" placeholder="Dato o Medición">
-        <button onclick="enviarDatos()" id="btn">Registrar</button>
-        <div id="mensaje"></div>
+    <div class="card">
+        <strong>BargasLautaro</strong>
+        <p>Registro de datos técnicos</p>
+        <input type="text" id="nombre" placeholder="Nombre">
+        <input type="text" id="dato" placeholder="Dato (ej: 15,5 N)">
+        <button onclick="enviar()">Enviar a Sheet</button>
+        <div id="status"></div>
     </div>
 
     <script>
-        // REEMPLAZA ESTA URL CON LA TUYA
-        const MI_URL_SCRIPT = 'https://script.google.com/macros/s/AKfycby8KzqMgcVMFDTqjrBhFzJtKrNa300ChMhz28qz6F073m6-RRfDs309D6Fk4P2DhzaV/exec';
+        const SCRIPT_URL = 'TU_URL_AQUI'; // Asegúrate que sea la última generada
 
-        async function enviarDatos() {
-            const btn = document.getElementById('btn');
-            const msg = document.getElementById('mensaje');
-            const nombre = document.getElementById('nombre').value;
-            const dato = document.getElementById('dato').value;
+        async function enviar() {
+            const status = document.getElementById('status');
+            const n = document.getElementById('nombre').value;
+            const d = document.getElementById('dato').value;
 
-            if(!nombre || !dato) {
-                msg.innerText = "Por favor, completa ambos campos.";
-                msg.style.color = "red";
-                return;
-            }
+            if(!n || !d) return alert("Completa los campos");
 
-            btn.disabled = true;
-            msg.innerText = "Enviando...";
-            msg.style.color = "#3498db";
+            status.innerText = "Enviando...";
+
+            // CREAMOS UN FORMULARIO VIRTUAL (Evita el error 401 de CORS)
+            const formData = new URLSearchParams();
+            formData.append('nombre', n);
+            formData.append('dato', d);
 
             try {
-                // Enviamos como JSON pero con modo no-cors para evitar bloqueos
-                await fetch(MI_URL_SCRIPT, {
+                await fetch(SCRIPT_URL, {
                     method: 'POST',
-                    mode: 'no-cors',
-                    cache: 'no-cache',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ nombre: nombre, dato: dato })
+                    mode: 'no-cors', // Google no permite leer la respuesta, pero sí enviar
+                    body: formData // Enviamos como texto de formulario
                 });
 
-                msg.innerText = "¡Datos registrados con éxito!";
-                msg.style.color = "#27ae60";
+                status.innerText = "¡Enviado! (Verifica tu Sheet)";
+                status.style.color = "green";
                 document.getElementById('nombre').value = "";
                 document.getElementById('dato').value = "";
-            } catch (error) {
-                msg.innerText = "Error al conectar con el servidor.";
-                msg.style.color = "#e74c3c";
-                console.error(error);
-            } finally {
-                btn.disabled = false;
+            } catch (e) {
+                status.innerText = "Error de red.";
+                status.style.color = "red";
             }
         }
     </script>
