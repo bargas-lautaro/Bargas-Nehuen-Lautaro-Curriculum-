@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>BargasLautaro - Conexión Sheets</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; max-width: 400px; }
+        form { display: flex; flex-direction: column; gap: 10px; }
+        input, button { padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+        button { background: #28a745; color: white; cursor: pointer; border: none; }
+    </style>
+</head>
+<body>
+
+    <h2>Enviar a Google Sheets</h2>
+    
+    <form id="miFormulario">
+        <input type="text" id="nombre" placeholder="Tu nombre" required>
+        <input type="text" id="mensaje" placeholder="Tu mensaje" required>
+        <button type="submit" id="btnEnviar">Enviar Datos</button>
+    </form>
+
+    <p id="estado"></p>
+
+    <script>
+        const URL_SCRIPT = 'TU_URL_DE_APPS_SCRIPT_AQUI';
+
+        document.getElementById('miFormulario').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('btnEnviar');
+            const estado = document.getElementById('estado');
+            
+            btn.disabled = true;
+            estado.innerText = "Enviando...";
+
+            const datos = {
+                nombre: document.getElementById('nombre').value,
+                mensaje: document.getElementById('mensaje').value
+            };
+
+            try {
+                // Usamos el modo 'no-cors' para evitar problemas de seguridad simples
+                // aunque esto impide leer la respuesta JSON, los datos llegan igual.
+                await fetch(URL_SCRIPT, {
+                    method: 'POST',
+                    mode: 'no-cors', 
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(datos)
+                });
+                
+                estado.innerText = "¡Datos enviados con éxito!";
+                document.getElementById('miFormulario').reset();
+            } catch (error) {
+                estado.innerText = "Error al enviar datos.";
+                console.error(error);
+            } finally {
+                btn.disabled = false;
+            }
+        });
+    </script>
+
+    <hr>
+    <footer>BargasLautaro</footer>
+</body>
+</html>
