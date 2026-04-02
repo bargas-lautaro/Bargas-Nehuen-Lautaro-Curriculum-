@@ -2,75 +2,58 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BargasLautaro - Registro de Datos</title>
+    <title>BargasaaaLautaro - Prueba Exitosa</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f9; display: flex; flex-direction: column; align-items: center; padding: 50px; }
-        .container { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 100%; max-width: 400px; }
-        h2 { color: #333; margin-bottom: 20px; font-size: 1.2rem; }
-        form { display: flex; flex-direction: column; gap: 15px; }
-        input { padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem; }
-        button { padding: 12px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; transition: background 0.3s; }
-        button:hover { background-color: #0056b3; }
-        button:disabled { background-color: #ccc; }
-        #estado { margin-top: 15px; font-size: 0.9rem; text-align: center; }
-        footer { margin-top: 20px; font-size: 0.8rem; color: #777; }
+        body { font-family: sans-serif; display: flex; flex-direction: column; align-items: center; padding-top: 50px; background: #f0f2f5; }
+        .card { background: white; padding: 2rem; border-radius: 10px; shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        input { display: block; width: 100%; margin-bottom: 10px; padding: 10px; box-sizing: border-box; }
+        button { width: 100%; padding: 10px; background: #007bff; color: white; border: none; cursor: pointer; }
+        #respuesta { margin-top: 15px; font-weight: bold; }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h2>Enviar a Gousssssogle Sheets</h2>
-        <form id="registroForm">
-            <input type="text" id="nombre" placeholder="Nombre del alumno o tema" required>
-            <input type="text" id="mensaje" placeholder="Observación o dato técnico" required>
-            <button type="submit" id="btnEnviar">Registrar en Sheet</button>
-        </form>
-        <div id="estado"></div>
+    <div class="card">
+        <h3>Registro Rápido</h3>
+        <input type="text" id="nombre" placeholder="Nombre">
+        <input type="text" id="dato" placeholder="Dato técnico">
+        <button onclick="enviar()">Enviar Datos</button>
+        <div id="respuesta"></div>
     </div>
 
-    <footer>BargaszzzzzLautaro</footer>
-
     <script>
-        // PEGA AQUÍ TU URL DE GOOGLE APPS SCRIPT
-        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzDabSXaK7tIC6WxoN2v32J0zSOUjDqy3E6_hSptf-m/dev';
+        // PEGA TU URL AQUÍ
+        const URL_WEB_APP = 'https://script.google.com/macros/s/AKfycby8KzqMgcVMFDTqjrBhFzJtKrNa300ChMhz28qz6F073m6-RRfDs309D6Fk4P2DhzaV/exec';
 
-        document.getElementById('registroForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const btn = document.getElementById('btnEnviar');
-            const estado = document.getElementById('estado');
-            
-            btn.disabled = true;
-            estado.innerText = "Procesando envío...";
-            estado.style.color = "orange";
+        async function enviar() {
+            const resDiv = document.getElementById('respuesta');
+            resDiv.innerText = "Enviando...";
 
             const payload = {
                 nombre: document.getElementById('nombre').value,
-                mensaje: document.getElementById('mensaje').value
+                dato: document.getElementById('dato').value
             };
 
             try {
-                // Usamos no-cors para evitar bloqueos simples de navegador
-                await fetch(WEB_APP_URL, {
-    method: 'POST',
-    mode: 'no-cors', 
-    cache: 'no-cache',
-    credentials: 'omit', // <--- AGREGA ESTA LÍNEA
-    headers: {
-        'Content-Type': 'text/plain' // Google Apps Script prefiere esto en modo no-cors
-    },
-                
-                estado.innerText = "¡Enviado! Revisa tu planilla.";
-                estado.style.color = "green";
-                document.getElementById('registroForm').reset();
-            } catch (error) {
-                estado.innerText = "Error de conexión.";
-                estado.style.color = "red";
-                console.error(error);
-            } finally {
-                btn.disabled = false;
+                // Usamos text/plain para evitar el preflight de CORS que a veces causa el 401
+                await fetch(URL_WEB_APP, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    cache: 'no-cache',
+                    headers: { 'Content-Type': 'text/plain' },
+                    body: JSON.stringify(payload)
+                });
+
+                resDiv.style.color = "green";
+                resDiv.innerText = "¡Enviado! Revisa tu Excel.";
+                document.getElementById('nombre').value = "";
+                document.getElementById('dato').value = "";
+            } catch (err) {
+                resDiv.style.color = "red";
+                resDiv.innerText = "Error de conexión.";
+                console.error(err);
             }
-        });
+        }
     </script>
 </body>
 </html>
