@@ -2,59 +2,53 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>BargasLasssutaro - Conexión Final</title>
+    <title>BargasLautaro - Registro Directo</title>
     <style>
-        body { font-family: sans-serif; display: flex; flex-direction: column; align-items: center; padding-top: 50px; background: #f4f7f6; }
-        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); width: 300px; }
-        input { width: 100%; padding: 10px; margin-bottom: 10px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; }
-        button { width: 100%; padding: 10px; background: #27ae60; color: white; border: none; border-radius: 4px; cursor: pointer; }
-        #status { margin-top: 10px; font-size: 0.8rem; text-align: center; }
+        body { font-family: sans-serif; background-color: #f0f4f8; display: flex; flex-direction: column; align-items: center; padding-top: 100px; }
+        .box { background: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 320px; }
+        h2 { margin: 0 0 20px 0; font-size: 1.2rem; color: #333; }
+        input { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        input[type="submit"] { background-color: #2ecc71; color: white; border: none; cursor: pointer; font-weight: bold; }
+        input[type="submit"]:hover { background-color: #27ae60; }
+        #confirmacion { display: none; margin-top: 15px; color: #27ae60; font-weight: bold; text-align: center; }
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <strong>BargasLautaro</strong>
-        <p>Registro de datos técnicos</p>
-        <input type="text" id="nombre" placeholder="Nombre">
-        <input type="text" id="dato" placeholder="Dato (ej: 15,5 N)">
-        <button onclick="enviar()">Enviar a Sheet</button>
-        <div id="status"></div>
+    <div style="font-weight: bold; margin-bottom: 10px;">BargasLautaro</div>
+
+    <div class="box">
+        <h2>Enviar a Sheets</h2>
+        
+        <form 
+            action="https://script.google.com/macros/s/AKfycby8KzqMgcVMFDTqjrBhFzJtKrNa300ChMhz28qz6F073m6-RRfDs309D6Fk4P2DhzaV/exec" 
+            method="POST" 
+            target="hidden_iframe" 
+            onsubmit="mostrarMensaje()">
+            
+            <input type="text" name="nombre" placeholder="Nombre" required>
+            <input type="text" name="dato" placeholder="Dato técnico" required>
+            <input type="submit" value="Registrar Ahora">
+        </form>
+
+        <div id="confirmacion">¡Datos enviados con éxito!</div>
     </div>
 
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(sent) finEnvio()"></iframe>
+
     <script>
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby8KzqMgcVMFDTqjrBhFzJtKrNa300ChMhz28qz6F073m6-RRfDs309D6Fk4P2DhzaV/exec'; // Asegúrate que sea la última generada
-
-        async function enviar() {
-            const status = document.getElementById('status');
-            const n = document.getElementById('nombre').value;
-            const d = document.getElementById('dato').value;
-
-            if(!n || !d) return alert("Completa los campos");
-
-            status.innerText = "Enviando...";
-
-            // CREAMOS UN FORMULARIO VIRTUAL (Evita el error 401 de CORS)
-            const formData = new URLSearchParams();
-            formData.append('nombre', n);
-            formData.append('dato', d);
-
-            try {
-                await fetch(SCRIPT_URL, {
-                    method: 'POST',
-                    mode: 'no-cors', // Google no permite leer la respuesta, pero sí enviar
-                    body: formData // Enviamos como texto de formulario
-                });
-
-                status.innerText = "¡Enviado! (Verifica tu Sheet)";
-                status.style.color = "green";
-                document.getElementById('nombre').value = "";
-                document.getElementById('dato').value = "";
-            } catch (e) {
-                status.innerText = "Error de red.";
-                status.style.color = "red";
-            }
+        let sent = false;
+        function mostrarMensaje() {
+            sent = true;
+            document.getElementById('confirmacion').style.display = 'block';
+            document.getElementById('confirmacion').innerText = 'Procesando...';
+        }
+        function finEnvio() {
+            document.getElementById('confirmacion').innerText = '¡Enviado al Excel!';
         }
     </script>
+
+    <div style="margin-top: 30px; font-size: 0.8rem; color: #888;">BargasLautaro</div>
+
 </body>
 </html>
