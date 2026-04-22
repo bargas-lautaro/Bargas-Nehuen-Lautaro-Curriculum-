@@ -34,6 +34,37 @@
             padding: 20px;
         }
         @media (max-width: 850px) {
+         
+    .mobile-footer {
+        display: grid !important; /* Lo activa solo en móviles */
+        grid-template-columns: 1fr 1fr;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        z-index: 9999;
+    }
+
+    .footer-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+    }
+
+    .wa { background-color: #25D366; }
+    .mail { background-color: var(--neon-magenta); }
+
+    /* Ajuste para que el contenido del CV no quede tapado por el footer */
+    body {
+        padding-bottom: 70px !important;
+    }
+
     .cv-container { 
         display: flex !important;
         flex-direction: column !important;
