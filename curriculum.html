@@ -37,6 +37,13 @@
         }
         @media (max-width: 850px) {
          
+
+    /* Oculta el título y la lista de contacto del sidebar en móviles */
+    .sidebar h2:nth-of-type(1), 
+    .sidebar .contact-info {
+        display: none !important;
+    }
+
         /* --- Footer con Emojis y 10% de altura --- */
     .mobile-footer {
         display: grid !important;
