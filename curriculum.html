@@ -31,20 +31,31 @@
         }
         @media (max-width: 850px) {
     .cv-container { 
-        display: flex;
-        flex-direction: column;
+        display: flex !important;
+        flex-direction: column !important;
+        height: auto !important;
+    }
+    
+    .sidebar, .main-content {
+        width: 100% !important;
+        display: block !important;
+        position: relative !important;
+        margin: 0 !important;
     }
     
     .sidebar { 
-        width: 100%;
-        border-right: none; 
-        border-bottom: 1px solid rgba(0, 210, 255, 0.1); 
+        border-right: none !important; 
+        border-bottom: 1px solid rgba(0, 210, 255, 0.1) !important; 
     }
     
     .subjects-grid { 
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+    }
+    
+    header h1 {
+        font-size: 2rem !important;
+        word-wrap: break-word !important;
     }
 }
 
