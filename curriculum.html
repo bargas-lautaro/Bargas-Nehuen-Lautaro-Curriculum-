@@ -35,120 +35,7 @@
             line-height: 1.4;
             padding: 20px;
         }
-        @media (max-width: 850px) {
-             /* Alineación en una sola columna para Habilidades, Software y Modalidad */
-    .sidebar .skill-tags,
-    .sidebar .badge-container {
-        display: flex !important;
-        flex-direction: column !important;
-        width: 100% !important;
-        gap: 10px !important;
-    }
-
-    .sidebar .skill-tags li {
-        width: 100% !important;
-        text-align: center !important;
-        box-sizing: border-box !important;
-    }
-
-    .sidebar .badge {
-        width: 100% !important;
-        text-align: center !important;
-        padding: 8px !important;
-    }
-
-
-    /* Oculta el título y la lista de contacto del sidebar en móviles */
-    .sidebar h2:nth-of-type(1), 
-    .sidebar .contact-info {
-        display: none !important;
-    }
-
-        /* --- Footer con Emojis y 10% de altura --- */
-    .mobile-footer {
-        display: grid !important;
-        grid-template-columns: 1fr 1fr;
-        position: fixed;
-        bottom: 0px;
-        left: 0px;
-        width: 100%;
-        height: 6vh !important; /* Ocupa exactamente el 10% del alto de la pantalla */
-        z-index: 9999;
-        border-top: 1px solid rgba(0, 210, 255, 0.3);
-    }
-
-    .footer-link {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
-        color: white;
-        font-weight: bold;
-        font-size: 1.2rem; /* Tamaño del emoji y texto */
-    }
-
-    .wa { 
-        background-color: black !important; 
-    }
-    
-    .mail { 
-        background-color: black !important; /* Tu color neon-magenta */
-    }
-
-    /* Evita que el contenido del CV quede tapado por el 10% del footer */
-    body {
-        padding-bottom: 12vh !important;
-    }
-
-
-    
-    body {
-        padding-bottom: 70px !important;
-    }
-
-    .cv-container { 
-        display: flex !important;
-        flex-direction: column !important;
-        height: auto !important;
-    }
-        .contact-info {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 15px !important;
-        align-items: flex-start !important;
-    }
-
-    .contact-info li {
-        width: 100% !important;
-        font-size: 0.9rem !important;
-    }
-
-    .profile-img-container {
-        margin: 0 auto 30px auto !important;
-    }
-
-    .sidebar, .main-content {
-        width: 100% !important;
-        display: block !important;
-        position: relative !important;
-        margin: 0 !important;
-    }
-    
-    .sidebar { 
-        border-right: none !important; 
-        border-bottom: 1px solid rgba(0, 210, 255, 0.1) !important; 
-    }
-    
-    .subjects-grid { 
-        display: grid !important;
-        grid-template-columns: 1fr !important;
-    }
-    
-    header h1 {
-        font-size: 2rem !important;
-        word-wrap: break-word !important;
-    }
-}
+     
 
         .cv-container {
             background: var(--bg-card);
@@ -388,11 +275,78 @@
             gap: 10px;
         }
 
-        @media (max-width: 850px) {
-            .cv-container { grid-template-columns: 1fr; }
-            .sidebar { border-right: none; border-bottom: 1px solid rgba(0, 210, 255, 0.1); }
-            .subjects-grid { grid-template-columns: 1fr; }
-        }
+     
+  
+    /* --- ESTO VA AL FINAL DE TODO EL CSS --- */
+@media (max-width: 850px) {
+    /* 1. Estructura base */
+    .cv-container { 
+        display: flex !important;
+        flex-direction: column !important;
+        height: auto !important;
+    }
+
+    .sidebar, .main-content {
+        width: 100% !important;
+        padding: 20px !important;
+    }
+
+    /* 2. Ocultar contacto del sidebar (Ya está en el footer) */
+    .sidebar h2:nth-of-type(1), 
+    .sidebar .contact-info {
+        display: none !important;
+    }
+
+    /* 3. Habilidades y Software en columna */
+    .sidebar .skill-tags {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 8px !important;
+    }
+
+    .sidebar .skill-tags li {
+        width: 100% !important;
+        text-align: center !important;
+        padding: 10px !important;
+        font-size: 0.9rem !important;
+    }
+
+    /* 4. Modalidad en columna */
+    .mobile-column {
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+
+    /* 5. Footer con Emojis (10% de la pantalla) */
+    .mobile-footer {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 10vh !important;
+        z-index: 9999;
+    }
+
+    .footer-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        font-size: 1.1rem;
+    }
+
+    .wa { background-color: #25D366 !important; }
+    .mail { background-color: #ff00ff !important; }
+
+    body {
+        padding-bottom: 12vh !important;
+    }
+}
+    
     </style>
 </head>
 <body>
