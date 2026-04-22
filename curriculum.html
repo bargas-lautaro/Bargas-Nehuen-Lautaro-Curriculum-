@@ -29,6 +29,24 @@
             line-height: 1.4;
             padding: 20px;
         }
+        @media (max-width: 850px) {
+    .cv-container { 
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .sidebar { 
+        width: 100%;
+        border-right: none; 
+        border-bottom: 1px solid rgba(0, 210, 255, 0.1); 
+    }
+    
+    .subjects-grid { 
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+}
 
         .cv-container {
             background: var(--bg-card);
